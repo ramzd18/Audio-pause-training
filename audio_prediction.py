@@ -18,24 +18,10 @@ def predict_next_in_sequence(model, text, tokenizer, max_len):
     # Make prediction
     predictions = model.predict(sequence)[0]
 
-    # Assuming classes: 0 - 'O', 1 - 'P', 2 - 'E'
-    class_labels = {0: 'O', 1: 'P', 2: 'E'}
-
-    # Process predictions
-#     predicted_classes = np.argmax(predictions, axis=1)
-#     labeled_predictions = [class_labels[cls] for cls in predicted_classes]
-
     return predictions
 
-# # Example usage
-# text="Can you find out when the next station uhm uhm" 
-# predicted_classes = predict_next_in_sequence(loaded_model, text, loaded_tokenizer, 11)
-# print(predicted_classes)
-
-# Initialize the speech recognizer
 recognizer = sr.Recognizer()
 
-# Create a single microphone instance
 microphone = sr.Microphone()
 
 def recognize_speech_from_microphone(recognizer, microphone):
